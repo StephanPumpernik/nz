@@ -30,7 +30,7 @@
         </figure>
 
         <h3>Übersichtskarte</h3>
-        <div id="map" style="width:900px;height:600px";border:1px solid silver></div>
+        <div id="map" style="width:900px;height:600px" ;border:1px solid silver></div>
 
         <h3>Links</h3>
         <ul>
@@ -47,4 +47,12 @@
             <a href="https://PriPh625.github.io/nz/">nächste Etappe</a>
         </nav>
     </footer>
+
+    <script>
+        var map = L.map('map').setView([51.505, -0.09], 13);
+        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            maxZoom: 19,
+            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        }).addTo(map);
+    </script>
 </body>
