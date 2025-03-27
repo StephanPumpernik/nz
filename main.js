@@ -27,7 +27,7 @@ let marker = L.marker([stop.lat, stop.lng]).addTo(map);
 
 //popup definieren und öffnen
 marker.bindPopup(`
-           <h2> Moreaki Boulders </h2>
+           <h2>${stop.titel}</h2>
            <ul>
             <li> Geogr. Breite: ${stop.lat.toFixed(5)}° </>
             <li> Geogr. Länge: ${stop.lng.toFixed(5)}° </>
