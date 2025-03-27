@@ -5,7 +5,7 @@ skript für nz reise
 
 let stop = {
     nr: 24,
-    titel: "Moeraki Boulders",
+    title: "Moeraki Boulders",
     user: "StephanPumpernik",
     lat: -45.345275,
     lng: 170.826061,
@@ -168,7 +168,7 @@ const STOPS = [
     },
     {
         nr: 24,
-        titel: "Moeraki Boulders",
+        title: "Moeraki Boulders",
         user: "StephanPumpernik",
         lat: -45.345275,
         lng: 170.826061,
@@ -202,6 +202,10 @@ const STOPS = [
 
 ];
 
+for(let i=0; i<STOPS.length; i++) {
+    console.log(STOPS[i],);
+}
+
 // Karte initialisieren
 let map = L.map('map').setView([stop.lat, stop.lng], stop.zoom);
 
@@ -211,12 +215,18 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+//loop über Etappen
+for(let i=0; i<STOPS.length; i++) {
+    console.log(STOPS[i],);
 //marker zeichnen
-let marker = L.marker([stop.lat, stop.lng]).addTo(map);
+let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
+}
+
+
 
 //popup definieren und öffnen
 marker.bindPopup(`
-           <h2>${stop.titel}</h2>
+           <h2>${stop.title}</h2>
            <ul>
             <li> Geogr. Breite: ${stop.lat.toFixed(5)}° </>
             <li> Geogr. Länge: ${stop.lng.toFixed(5)}° </>
