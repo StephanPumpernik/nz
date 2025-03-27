@@ -19,5 +19,5 @@ let map = L.map('map').setView([lat, lng],zoom );
         marker.bindPopup(`
             <b>Moeraki Boulders</b>
             <br>
-            I am a popup.
+            I am a popup at ${lat} / ${lng}.
             `).openPopup();
