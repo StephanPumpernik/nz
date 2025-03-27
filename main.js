@@ -16,8 +16,11 @@ let map = L.map('map').setView([lat, lng],zoom );
         //marker zeichnen
         let marker = L.marker([lat, lng]).addTo(map);
         //popup definieren und öffnen
+       
         marker.bindPopup(`
-            <b>Moeraki Boulders</b>
-            <br>
-            I am a popup at ${lat.toFixed(5)} / ${lng.toFixed(5)}.
+           <h2> Moreaki Boulders </h2>
+           <ul>
+            <li> Geogr. Breite: ${lat.toFixed(5)}° </>
+            <li> Geogr. Länge: ${lng.toFixed(5)}° </>
+           </ul>
             `).openPopup();
