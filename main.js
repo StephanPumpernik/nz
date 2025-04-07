@@ -215,6 +215,26 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 }).addTo(map);
 
+//Overlay definieren
+let overlays = {
+    STOPS: L.featureGroup().addTo(map),
+}
+
+//Layercontrol machen
+L.control.layers({
+    "OpenStreetMap.Mapnik": L.tileLayer.provider('OpenStreetMap.Mapnik').addTo(map),
+    "OpenTopoMap": L.tileLayer.provider('OpenTopoMap'),
+    "Esri WorldImaginary": L.tileLayer.provider('Esri.WorldImagery'),
+
+}, {
+    "Etappen": overlays.STOPS
+}).addTo(map);
+
+//maßstab machen
+L.control.scale({
+    imperial: false
+}).addTo(map);
+
 //loop über Etappen
 for (let i = 0; i < STOPS.length; i++) {
 
