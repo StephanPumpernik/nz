@@ -217,7 +217,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
 
 //Overlay definieren
 let overlays = {
-    STOPS: L.featureGroup().addTo(map),
+    marker: L.featureGroup().addTo(map),
 }
 
 //Layercontrol machen
@@ -227,7 +227,7 @@ L.control.layers({
     "Esri WorldImaginary": L.tileLayer.provider('Esri.WorldImagery'),
 
 }, {
-    "Etappen": overlays.STOPS
+    "Etappen": overlays.marker
 }).addTo(map);
 
 //maßstab machen
@@ -240,6 +240,7 @@ for (let i = 0; i < STOPS.length; i++) {
 
     //marker zeichnen
     let marker = L.marker([STOPS[i].lat, STOPS[i].lng]).addTo(map);
+    marker.addTo(overlays.marker)
 
     //popup definieren 
     marker.bindPopup(`
